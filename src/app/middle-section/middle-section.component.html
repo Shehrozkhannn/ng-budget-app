@@ -1,0 +1,14 @@
+<div class="middle-container">
+        <div class="heading">
+            <h4>Total Budget</h4>
+            <span>{{totalBudget}}</span>
+        </div>
+        <div class="heading">
+            <h4>Expenses</h4>
+            <span>{{sum}}</span>
+        </div>
+        <div class="heading">
+            <h4>Balance</h4>
+            <span [(ngModel)]='balance'>{{totalBudget - sum}}</span>
+        </div>
+</div>

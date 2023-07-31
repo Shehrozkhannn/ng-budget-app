@@ -1,0 +1,20 @@
+.main-container{
+    border: 2px solid green;
+    width: 463px;
+    background: #6fdd8259;
+    border-radius: 7px;
+    height: 262px;
+    padding: 12px 47px 0px 47px;
+    span{
+        font-size: 24px;
+    }
+    input{
+        margin: 24px 0px 0px 0px;
+    }
+    .text-danger{
+        font-size: 14px !important;
+    }
+    button{
+        margin-top: 10px;
+    }
+}

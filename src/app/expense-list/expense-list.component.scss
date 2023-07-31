@@ -1,0 +1,21 @@
+.expense-list{
+    padding: 31px 0px;
+}
+.expense-heading{
+    margin-left: 195px;
+}
+.expense-content-list{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 24px;
+    border-left: 5px solid #198754;
+    margin-left: 199px;
+    span{
+        font-size: 23px;
+    }
+    .icons{
+        width: 328px;
+        display: flex;
+        justify-content: space-around;
+    }
+}

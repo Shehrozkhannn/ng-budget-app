@@ -1,0 +1,12 @@
+<div class="main-container">
+    <span>Expenses</span>
+    <input type="text" class="form-control" placeholder="Enter Title Of Product"
+    [(ngModel)]="expenses.titleOfProduct"
+    >
+    <input type="number" class="form-control" placeholder="Enter Cost Of Product"
+    [(ngModel)]="expenses.costOfProduct" #cost
+    >
+    <span *ngIf = "checkCost" class="text-danger">Please enter a number greater than one</span>
+    <button
+    class="btn btn-success" (click)="checkAmount()">Check Amount</button>
+</div>

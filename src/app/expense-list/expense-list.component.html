@@ -1,0 +1,14 @@
+<div class="expense-list">
+    <div class="expense-heading">
+        <h2>Expense List</h2>
+    </div>
+    <div class="expense-content-list" *ngFor = "let val of expenseList">
+        <mat-checkbox class="example-margin"></mat-checkbox>
+        <span>{{val.titleOfProduct}}</span>
+        <span>{{val.costOfProduct}}</span>
+        <div class="icons">
+            <img src="../../assets/edit.png" alt="">
+            <img src="../../assets/delete.png" alt="">
+        </div>
+    </div>
+</div>
