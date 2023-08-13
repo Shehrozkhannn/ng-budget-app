@@ -2,12 +2,15 @@
     padding: 31px 0px;
 }
 .expense-heading{
+    display: flex;
+    align-items: center;
     margin-left: 195px;
 }
 .expense-content-list{
     display: flex;
     justify-content: space-around;
     margin-top: 24px;
+    align-items: center;
     border-left: 5px solid #198754;
     margin-left: 199px;
     span{
@@ -18,4 +21,13 @@
         display: flex;
         justify-content: space-around;
     }
+}
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background{
+    background:#198754 !important;
+}
+.example-margin{
+    margin-bottom: 4px !important;
+}
+h2{
+    margin: 0px 18px;
 }

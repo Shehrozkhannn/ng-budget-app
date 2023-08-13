@@ -12,12 +12,12 @@ export class AppComponent {
 
 
   addExpenses(val:any){
-    this.expenseListVal.push(val);
+    this.expenseListVal.push({...val , isSelected:false});
     this.sum = this.expenseListVal.reduce((acc:any,val:any)=>{
       return acc + val.costOfProduct
     },0)
-    console.log(this.expenseListVal);
-    console.log(this.sum);
+    // console.log(this.expenseListVal);
+    // console.log(this.sum);
     
   }
 }

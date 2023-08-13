@@ -14,7 +14,7 @@ export class ExpensesComponent implements OnInit {
   obs: Subscription;
   expenses = {
     titleOfProduct: undefined,
-    costOfProduct: 0
+    costOfProduct: 0,
   }
   checkCost: boolean = false;
 

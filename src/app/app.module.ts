@@ -7,6 +7,7 @@ import { BudgetSectionComponent } from './budget-section/budget-section.componen
 import { ExpensesComponent } from './expenses/expenses.component';
 import { MiddleSectionComponent } from './middle-section/middle-section.component';
 import { ExpenseListComponent } from './expense-list/expense-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
@@ -22,7 +23,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
