@@ -11,11 +11,12 @@ export class MiddleSectionComponent implements OnInit {
   totalBudget:any;
   obs: Subscription; 
   @Input() sum:any=0;
+  @Input() deletedItemCost:any=0;
   balance:any;
 
   constructor(private _budgetService:BudgetService) {
+    console.log('Updated Delete Item Cost', this.deletedItemCost)
     this.obs = this._budgetService.getAmount().subscribe((val:any)=>{
-    console.log(val)
     this.totalBudget = val;
    })
    }

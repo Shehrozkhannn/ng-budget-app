@@ -6,7 +6,7 @@
         ></mat-checkbox>
         <h2>Expense List</h2>
     </div>
-    <div class="expense-content-list" *ngFor = "let val of expenseList">
+    <div class="expense-content-list" *ngFor = "let val of expenseList;let i = index">
         <mat-checkbox class="example-margin"
         [(ngModel)]="val.isSelected"
         (change)="selectIndividualExpense(val)"
@@ -14,8 +14,12 @@
         <span>{{val.titleOfProduct}}</span>
         <span>{{val.costOfProduct}}</span>
         <div class="icons">
-            <img src="../../assets/edit.png" alt="">
-            <img src="../../assets/delete.png" alt="">
+           <span>
+               <img src="../../assets/edit.png" alt="">
+           </span>
+           <span (click)="removeItem(i)">
+               <img src="../../assets/delete.png" alt="">
+           </span>
         </div>
     </div>
 </div>

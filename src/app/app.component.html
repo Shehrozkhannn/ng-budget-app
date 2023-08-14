@@ -4,8 +4,9 @@
     <app-expenses (detailsOfProduct)="addExpenses($event)" class="expense-section"></app-expenses>
   </div>
   <app-middle-section
+  [deletedItemCost]="deletedItemCost"
   [sum] = "sum"
   ></app-middle-section>
-  <app-expense-list [expenseList]="expenseListVal"
+  <app-expense-list (priceOfProduct)="deletedItem($event)" [expenseList]="expenseListVal"
   ></app-expense-list>
 </div>

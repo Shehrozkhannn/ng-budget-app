@@ -13,7 +13,7 @@ export class ExpensesComponent implements OnInit {
   totalBudget: any;
   obs: Subscription;
   expenses = {
-    titleOfProduct: undefined,
+    titleOfProduct: '',
     costOfProduct: 0,
   }
   checkCost: boolean = false;
@@ -28,7 +28,6 @@ export class ExpensesComponent implements OnInit {
   ngOnInit(): void {
   }
   checkAmount() {
-
     if (this.totalBudget <= 0) {
       alert("Your Account budget is empty")
       return
@@ -44,6 +43,8 @@ export class ExpensesComponent implements OnInit {
       });
       this.checkCost = false;
     }
+    this.expenses.costOfProduct = 0;
+    this.expenses.titleOfProduct =''
   }
 
 }

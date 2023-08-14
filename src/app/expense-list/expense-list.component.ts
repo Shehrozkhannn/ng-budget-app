@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-expense-list',
@@ -9,20 +9,14 @@ export class ExpenseListComponent implements OnInit {
   @Input() expenseList : any = [];
   selectAll:Boolean = false;
   allChecked:any;
+  @Output() priceOfProduct = new EventEmitter<any>();
   constructor() {
   }
   
   ngOnInit(): void {
-    // this.expenseList.push(this.expenseListVal);
-    // console.log(this.expenseList);
   }
   selectAllExpense(){
     this.allChecked ? this.selectAll = true : this.selectAll = false
-    // if(this.allChecked){
-    //   this.selectAll = true; 
-    // }else{
-    //   this.selectAll = false;
-    // }
   }
   selectIndividualExpense(checkbox:any){
     console.log(this.expenseList);
@@ -30,6 +24,9 @@ export class ExpenseListComponent implements OnInit {
      return val.isSelected == true;
     })
     this.selectAllExpense();
-    // console.log(allChecked)
+  }
+  removeItem(index:any){
+   const deletedItem = this.expenseList.splice(index,1)
+   this.priceOfProduct.emit(deletedItem);
   } 
 }
