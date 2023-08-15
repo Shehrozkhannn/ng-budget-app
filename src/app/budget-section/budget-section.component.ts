@@ -13,7 +13,6 @@ export class BudgetSectionComponent implements OnInit {
 
   constructor(private _budgetService:BudgetService) { 
     this.obs = this._budgetService.getAmount().subscribe((val:any)=>{
-      console.log(val)
      this.amountVal = val;
    })
   }

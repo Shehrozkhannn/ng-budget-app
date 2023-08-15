@@ -19,7 +19,6 @@ export class AppComponent {
     },0)
   }
   deletedItem(event:any){
-    console.log("DELETED ITEM" ,event[0].costOfProduct)
     this.sum = this.sum - event[0].costOfProduct;
     
 

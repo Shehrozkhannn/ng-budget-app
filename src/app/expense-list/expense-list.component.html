@@ -14,7 +14,7 @@
         <span>{{val.titleOfProduct}}</span>
         <span>{{val.costOfProduct}}</span>
         <div class="icons">
-           <span>
+           <span (click)="openEditDialog(val)">
                <img src="../../assets/edit.png" alt="">
            </span>
            <span (click)="removeItem(i)">

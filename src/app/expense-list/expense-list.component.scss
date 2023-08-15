@@ -20,6 +20,7 @@
         width: 328px;
         display: flex;
         justify-content: space-around;
+        cursor: pointer;
     }
 }
 ::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background{
@@ -30,4 +31,7 @@
 }
 h2{
     margin: 0px 18px;
+}
+.edit-expense .mat-dialog-container{
+    width: 500px !important;
 }

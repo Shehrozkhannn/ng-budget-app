@@ -9,6 +9,9 @@ import { MiddleSectionComponent } from './middle-section/middle-section.componen
 import { ExpenseListComponent } from './expense-list/expense-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { EditListSectionComponent } from './edit-list-section/edit-list-section.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
 
 
 @NgModule({
@@ -17,14 +20,17 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     BudgetSectionComponent,
     ExpensesComponent,
     MiddleSectionComponent,
-    ExpenseListComponent
+    ExpenseListComponent,
+    EditListSectionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     MatCheckboxModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

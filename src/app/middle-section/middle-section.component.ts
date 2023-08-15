@@ -15,15 +15,12 @@ export class MiddleSectionComponent implements OnInit {
   balance:any;
 
   constructor(private _budgetService:BudgetService) {
-    console.log('Updated Delete Item Cost', this.deletedItemCost)
     this.obs = this._budgetService.getAmount().subscribe((val:any)=>{
     this.totalBudget = val;
    })
    }
 
-  ngOnInit(): void {
-    console.log(this.balance)
-  
+  ngOnInit(): void {  
   }
   ngOnDestroy() {
     this.obs.unsubscribe();

@@ -1,4 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { EditListSectionComponent } from '../edit-list-section/edit-list-section.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-expense-list',
@@ -10,7 +12,7 @@ export class ExpenseListComponent implements OnInit {
   selectAll:Boolean = false;
   allChecked:any;
   @Output() priceOfProduct = new EventEmitter<any>();
-  constructor() {
+  constructor(public dialog: MatDialog) {
   }
   
   ngOnInit(): void {
@@ -19,7 +21,6 @@ export class ExpenseListComponent implements OnInit {
     this.allChecked ? this.selectAll = true : this.selectAll = false
   }
   selectIndividualExpense(checkbox:any){
-    console.log(this.expenseList);
     this.allChecked = this.expenseList.every((val:any)=>{
      return val.isSelected == true;
     })
@@ -29,4 +30,11 @@ export class ExpenseListComponent implements OnInit {
    const deletedItem = this.expenseList.splice(index,1)
    this.priceOfProduct.emit(deletedItem);
   } 
+  openEditDialog(editedItemVal:any){
+    console.log(editedItemVal);
+    this.dialog.open(EditListSectionComponent,{
+      panelClass:'edit-expense',
+      data:editedItemVal
+    });
+  }
 }
