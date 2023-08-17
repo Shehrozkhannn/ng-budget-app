@@ -1,6 +1,7 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, ViewChild } from '@angular/core';
 import { BudgetService } from '../budget.service';
 import { Subscription } from 'rxjs';
+import {Toast} from 'bootstrap'
 @Component({
   selector: 'app-expenses',
   templateUrl: './expenses.component.html',
@@ -25,12 +26,17 @@ export class ExpensesComponent implements OnInit {
 
   }
 
+  @ViewChild('myToast',{static:true}) toastEl: any
+  isClosed(){
+    return !this.toastEl.nativeElement.classList.contains('show')
+  }
+  toast:any
   ngOnInit(): void {
+    this.toast=new Toast(this.toastEl.nativeElement,{})
   }
   checkAmount() {
     if (this.totalBudget <= 0) {
-      alert("Your Account budget is empty")
-      return
+      return !this.toastEl.nativeElement.classList.contains('show');
     }
     if(this.expenses.costOfProduct < 0) {
       this.checkCost = true

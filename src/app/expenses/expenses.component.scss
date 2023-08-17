@@ -4,6 +4,7 @@
     background: #6fdd8259;
     border-radius: 7px;
     height: 262px;
+    position: relative;
     margin-top: 50px;
     padding: 12px 47px 0px 47px;
     span{
@@ -17,5 +18,17 @@
     }
     button{
         margin-top: 10px;
+    }
+}
+.toast-container{
+    position: absolute !important;
+    bottom: 195px !important;
+    left: 175px;
+}
+.toast-header,.toast-body{
+    background: #eb0000c9;
+    color: #ffff;
+    strong{
+        margin-left: 6px !important;
     }
 }
