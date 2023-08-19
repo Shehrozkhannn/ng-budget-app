@@ -8,7 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./expense-list.component.scss']
 })
 export class ExpenseListComponent implements OnInit {
-  @Input() expenseList : any = [];
+  @Input() expenseList : Array<any> = [];
   selectAll:Boolean = false;
   allChecked:any;
   @Output() priceOfProduct = new EventEmitter<any>();
@@ -30,11 +30,19 @@ export class ExpenseListComponent implements OnInit {
    const deletedItem = this.expenseList.splice(index,1)
    this.priceOfProduct.emit(deletedItem);
   } 
-  openEditDialog(editedItemVal:any){
+  openEditDialog(editedItemVal:any,index:number){
     console.log(editedItemVal);
-    this.dialog.open(EditListSectionComponent,{
+    const dialogRef = this.dialog.open(EditListSectionComponent,{
       panelClass:'edit-expense',
       data:editedItemVal
     });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+      this.expenseList.filter((val:any,indexSel:number)=>{
+        if(index == indexSel){
+        return val.titleOfProduct = result.productName
+        }
+      })
+    })
   }
 }

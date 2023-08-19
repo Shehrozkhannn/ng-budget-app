@@ -11,10 +11,10 @@
         [(ngModel)]="val.isSelected"
         (change)="selectIndividualExpense(val)"
         ></mat-checkbox>
-        <span>{{val.titleOfProduct}}</span>
+        <span class="expense-name">{{val.titleOfProduct}}</span>
         <span>{{val.costOfProduct}}</span>
         <div class="icons">
-           <span (click)="openEditDialog(val)">
+           <span (click)="openEditDialog(val,i)">
                <img src="../../assets/edit.png" alt="">
            </span>
            <span (click)="removeItem(i)">
