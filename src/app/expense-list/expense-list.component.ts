@@ -36,7 +36,7 @@ export class ExpenseListComponent implements OnInit {
       panelClass:'edit-expense',
       data:editedItemVal
     });
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result:any) => {
       console.log(result);
       this.expenseList.filter((val:any,indexSel:number)=>{
         if(index == indexSel){

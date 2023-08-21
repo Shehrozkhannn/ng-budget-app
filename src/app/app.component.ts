@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { BudgetService } from './budget.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -6,21 +8,36 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  totalBudget:any;
+  obs: Subscription; 
   title = 'budget-app';
   expenseListVal:any = [];
   sum:any = 0;
+  totalBalance:any=0;
   deletedItemCost:any;
 
+  constructor(private _budgetService:BudgetService) {
+    this.obs = this._budgetService.getAmount().subscribe((val:any)=>{
+    this.totalBudget = val;
+   })
+   }
 
-  addExpenses(val:any){
-    this.expenseListVal.push({...val , isSelected:false});
-    this.sum = this.expenseListVal.reduce((acc:any,val:any)=>{
-      return acc + val.costOfProduct
-    },0)
+  addExpenses(val:any){    
+    if(val.costOfProduct > this.totalBalance){
+      alert('You dont have enough budget');
+    }
+    else{
+      this.expenseListVal.push({...val , isSelected:false});
+      this.sum = this.expenseListVal.reduce((acc:any,val:any)=>{
+        return acc + val.costOfProduct
+      },0)
+      this.totalBalance = this.totalBudget - this.sum;
+    }
   }
   deletedItem(event:any){
     this.sum = this.sum - event[0].costOfProduct;
-    
-
+  }
+  setBalanceValue(event:any){
+    this.totalBalance = event;
   }
 }

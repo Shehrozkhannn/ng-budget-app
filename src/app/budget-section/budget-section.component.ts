@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { BudgetService } from '../budget.service';
 import { Subscription } from 'rxjs';
 
@@ -10,6 +10,8 @@ import { Subscription } from 'rxjs';
 export class BudgetSectionComponent implements OnInit {
   amountVal:number = 0;
   obs: Subscription; 
+  @Input() totalExpense:any=0;
+  @Output() setBalanceValue = new EventEmitter<any>();
 
   constructor(private _budgetService:BudgetService) { 
     this.obs = this._budgetService.getAmount().subscribe((val:any)=>{
@@ -22,7 +24,7 @@ export class BudgetSectionComponent implements OnInit {
   setBudget(amount:any){
       const addedVal= this.amountVal + Number(amount.value);
       this._budgetService.setAmount(addedVal);
-      amount.value = ''; 
+      this.setBalanceValue.emit(this.totalExpense > 0 ? addedVal - this.totalExpense :addedVal);
   }
   ngOnDestroy() {
     this.obs.unsubscribe();

@@ -10,8 +10,9 @@ import { Subscription } from 'rxjs';
 export class MiddleSectionComponent implements OnInit {
   totalBudget:any;
   obs: Subscription; 
-  @Input() sum:any=0;
   @Input() deletedItemCost:any=0;
+  @Input() sum:any=0;
+  @Input() totalBalance:any;
   balance:any;
 
   constructor(private _budgetService:BudgetService) {
