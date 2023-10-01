@@ -11,6 +11,8 @@ export class ExpensesComponent implements OnInit {
   // titleOfProduct:any;
   // costOfProduct:any;
   @Output() detailsOfProduct = new EventEmitter<any>();
+  @Output() tickIcon = new EventEmitter<any>();
+  showIcon:boolean = true;
   totalBudget: any;
   obs: Subscription;
   expenses = {
@@ -47,6 +49,7 @@ export class ExpensesComponent implements OnInit {
         titleOfProduct: this.expenses.titleOfProduct,
         costOfProduct: this.expenses.costOfProduct
       });
+      this.tickIcon.emit(this.showIcon)
       this.checkCost = false;
     }
     this.expenses.costOfProduct = 0;

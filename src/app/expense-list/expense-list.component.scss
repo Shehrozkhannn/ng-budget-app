@@ -4,7 +4,12 @@
 .expense-heading{
     display: flex;
     align-items: center;
-    margin-left: 195px;
+    margin: 0px 60px 0px 195px;
+    justify-content: space-between;
+    .checkbox-and-heading{
+        display: flex;
+        align-items: center;
+    }
 }
 .expense-content-list{
     display: flex;

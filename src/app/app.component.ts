@@ -13,6 +13,7 @@ export class AppComponent {
   title = 'budget-app';
   expenseListVal:any = [];
   sum:any = 0;
+  checkIconStatus:any;
   totalBalance:any=0;
   deletedItemCost:any;
 
@@ -28,6 +29,11 @@ export class AppComponent {
     }
     else{
       this.expenseListVal.push({...val , isSelected:false});
+       console.log(val);
+      //tickicon removing after pushing
+      setTimeout(() => {
+        this.checkIconStatus = false;
+      }, 2000);
       this.sum = this.expenseListVal.reduce((acc:any,val:any)=>{
         return acc + val.costOfProduct
       },0)
@@ -36,8 +42,12 @@ export class AppComponent {
   }
   deletedItem(event:any){
     this.sum = this.sum - event[0].costOfProduct;
+    this.totalBalance = this.totalBudget - this.sum;
   }
   setBalanceValue(event:any){
     this.totalBalance = event;
+  }
+  tickIcon(val:any){
+   this.checkIconStatus=val;
   }
 }

@@ -12,6 +12,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { EditListSectionComponent } from './edit-list-section/edit-list-section.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
+import { DeleteAllComponent } from './delete-all/delete-all.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import {MatButtonModule} from '@angular/material/button';
     ExpensesComponent,
     MiddleSectionComponent,
     ExpenseListComponent,
-    EditListSectionComponent
+    EditListSectionComponent,
+    DeleteAllComponent
   ],
   imports: [
     BrowserModule,

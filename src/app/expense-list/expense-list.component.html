@@ -1,17 +1,25 @@
 <div class="expense-list">
     <div class="expense-heading">
-        <mat-checkbox class="example-margin"
-        (change)="selectAllExpense()"
-        [(ngModel)]="selectAll"
-        ></mat-checkbox>
-        <h2>Expense List</h2>
+        <div class="checkbox-and-heading">
+            <mat-checkbox class="example-margin"
+            (change)="selectAllExpense()"
+            [(ngModel)]="selectAll"
+            ></mat-checkbox>
+            <h2>Expense List</h2>
+        </div>
+        <div class="delete-btn" *ngIf="expenseList.length">
+            <button mat-raised-button color="warn" (click)="deleteAll()">DELETE ALL
+                <b *ngIf="showDeleteBtnNumber">{{"(" + countChecks + ")"}}</b>
+            </button>
+        </div>
     </div>
     <div class="expense-content-list" *ngFor = "let val of expenseList;let i = index">
         <mat-checkbox class="example-margin"
         [(ngModel)]="val.isSelected"
-        (change)="selectIndividualExpense(val)"
+        (change)="selectIndividualExpense()"
         ></mat-checkbox>
         <span class="expense-name">{{val.titleOfProduct}}</span>
+        <img src="../../assets/succes-icon.svg" alt="" *ngIf="checkIconStatus">
         <span>{{val.costOfProduct}}</span>
         <div class="icons">
            <span (click)="openEditDialog(val,i)">
