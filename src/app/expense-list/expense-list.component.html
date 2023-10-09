@@ -7,7 +7,7 @@
             ></mat-checkbox>
             <h2>Expense List</h2>
         </div>
-        <div class="delete-btn" *ngIf="expenseList.length">
+        <div class="delete-btn" *ngIf="expenseList?.length">
             <button mat-raised-button color="warn" (click)="deleteAll()">DELETE ALL
                 <b *ngIf="showDeleteBtnNumber">{{"(" + countChecks + ")"}}</b>
             </button>

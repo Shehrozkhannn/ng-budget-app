@@ -21,8 +21,7 @@ export class AppComponent {
     this.obs = this._budgetService.getAmount().subscribe((val:any)=>{
     this.totalBudget = val;
    })
-   }
-
+  }
   addExpenses(val:any){    
     if(val.costOfProduct > this.totalBalance){
       alert('You dont have enough budget');
