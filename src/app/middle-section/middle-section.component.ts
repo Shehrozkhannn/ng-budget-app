@@ -14,7 +14,7 @@ export class MiddleSectionComponent implements OnInit {
   @Input() sum:any=0;
   @Input() totalBalance:any;
   balance:any;
-
+  // test
   constructor(private _budgetService:BudgetService) {
     this.obs = this._budgetService.getAmount().subscribe((val:any)=>{
     this.totalBudget = val;
