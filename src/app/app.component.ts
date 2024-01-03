@@ -29,10 +29,7 @@ export class AppComponent {
     else{
       this.expenseListVal.push({...val , isSelected:false});
        console.log(val);
-      //tickicon removing after pushing
-      setTimeout(() => {
-        this.checkIconStatus = false;
-      }, 2000);
+       localStorage.setItem("budgetListing",this.expenseListVal);
       this.sum = this.expenseListVal.reduce((acc:any,val:any)=>{
         return acc + val.costOfProduct
       },0)

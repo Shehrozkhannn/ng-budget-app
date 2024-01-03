@@ -1,19 +1,24 @@
 <div class="main-container">
   <div class="top-section">
-    <app-budget-section 
-    [totalExpense] = "sum"
-    (setBalanceValue)="setBalanceValue($event)"
-    class="budget-section"></app-budget-section>
-    <app-expenses (detailsOfProduct)="addExpenses($event)"
-    (tickIcon)="tickIcon($event)"
-    class="expense-section"></app-expenses>
+    <app-budget-section
+      [totalExpense]="sum"
+      (setBalanceValue)="setBalanceValue($event)"
+      class="budget-section"
+    ></app-budget-section>
+    <app-expenses
+      (detailsOfProduct)="addExpenses($event)"
+      (tickIcon)="tickIcon($event)"
+      class="expense-section"
+    ></app-expenses>
   </div>
   <app-middle-section
-  [deletedItemCost]="deletedItemCost"
-  [totalBalance]="totalBalance"
-  [sum] = "sum"
+    [deletedItemCost]="deletedItemCost"
+    [totalBalance]="totalBalance"
+    [sum]="sum"
   ></app-middle-section>
-  <app-expense-list (priceOfProduct)="deletedItem($event)" [expenseList]="expenseListVal"
-  [checkIconStatus]="checkIconStatus"
+  <app-expense-list
+    (priceOfProduct)="deletedItem($event)"
+    [expenseList]="expenseListVal"
+    [checkIconStatus]="checkIconStatus"
   ></app-expense-list>
 </div>

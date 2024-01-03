@@ -13,6 +13,8 @@ import { EditListSectionComponent } from './edit-list-section/edit-list-section.
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import { DeleteAllComponent } from './delete-all/delete-all.component';
+import {AngularFireModule } from '@angular/fire/compat'
+import { environment } from 'src/environments/environment';
 
 
 @NgModule({
@@ -32,7 +34,8 @@ import { DeleteAllComponent } from './delete-all/delete-all.component';
     MatCheckboxModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [],
   bootstrap: [AppComponent]

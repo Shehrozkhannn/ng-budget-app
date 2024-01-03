@@ -74,7 +74,10 @@ export class ExpenseListComponent implements OnInit, AfterViewInit {
       console.log(result);
       this.expenseList.filter((val: any, indexSel: number) => {
         if (index == indexSel) {
-          return (val.titleOfProduct = result.productName);
+          // return (val.titleOfProduct = result.productName);
+          val.titleOfProduct = result.productName,
+          val.costOfProduct = result.productPrice
+          return val;
         }
       });
     });
