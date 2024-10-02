@@ -8,3 +8,16 @@
     color: #fff;
     font-size: 20px
 }
+
+.reset-btn {
+    display: flex;
+    align-items: center;
+    button {
+        padding: 6px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        border: none;
+        border-radius: 6px;
+        color: #198754;
+    }
+}
