@@ -28,9 +28,9 @@ export class MiddleSectionComponent implements OnInit {
     this.obs.unsubscribe();
   }
   reset() {
-    this.totalBalance = null;
-    this.sum = null;
-    this.totalBudget = null;
+    this.totalBalance = 0;
+    this.sum = 0;
+    this.totalBudget = 0;
     this.emptyExpenseList.emit()
   }
 }
