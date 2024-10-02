@@ -1,10 +1,17 @@
 .main-container{
-    .top-section{
+    background-image: url('../assets/budget-backgroun-image.jpg');
+    height: 100vh;
+    .main-content {
         display: flex;
-        justify-content: space-around;
-        .budget-section{
+        justify-content: space-between;
+        padding: 40px;
+        .right-section {
+            display: flex;
+            flex-direction: column;
+            padding-right: 40px;
         }
-        .expense-section{
+        .left-section {
+            flex: 1;
         }
     }
 }
