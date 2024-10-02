@@ -25,6 +25,7 @@ export class BudgetSectionComponent implements OnInit {
       const addedVal= this.amountVal + Number(amount.value);
       this._budgetService.setAmount(addedVal);
       this.setBalanceValue.emit(this.totalExpense > 0 ? addedVal - this.totalExpense :addedVal);
+      amount.value = null;
   }
   ngOnDestroy() {
     this.obs.unsubscribe();

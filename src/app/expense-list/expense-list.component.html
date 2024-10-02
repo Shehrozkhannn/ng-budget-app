@@ -1,5 +1,5 @@
 <div class="expense-list">
-    <div class="expense-heading">
+    <div *ngIf="expenseList.length" class="expense-heading">
         <div class="checkbox-and-heading">
             <mat-checkbox class="example-margin"
             (change)="selectAllExpense()"

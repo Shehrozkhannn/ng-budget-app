@@ -15,6 +15,7 @@
     [deletedItemCost]="deletedItemCost"
     [totalBalance]="totalBalance"
     [sum]="sum"
+    (emptyExpenseList)="expenseListVal = []"
   ></app-middle-section>
   <app-expense-list
     (priceOfProduct)="deletedItem($event)"

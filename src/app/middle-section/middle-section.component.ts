@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { BudgetService } from '../budget.service';
 import { Subscription } from 'rxjs';
 
@@ -13,6 +13,7 @@ export class MiddleSectionComponent implements OnInit {
   @Input() deletedItemCost:any=0;
   @Input() sum:any=0;
   @Input() totalBalance:any;
+  @Output() emptyExpenseList = new EventEmitter<any>();
   balance:any;
   // test
   constructor(private _budgetService:BudgetService) {
@@ -25,5 +26,11 @@ export class MiddleSectionComponent implements OnInit {
   }
   ngOnDestroy() {
     this.obs.unsubscribe();
+  }
+  reset() {
+    this.totalBalance = null;
+    this.sum = null;
+    this.totalBudget = null;
+    this.emptyExpenseList.emit()
   }
 }
