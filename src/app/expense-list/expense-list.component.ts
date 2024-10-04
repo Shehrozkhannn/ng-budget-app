@@ -9,6 +9,7 @@ import {
 import { EditListSectionComponent } from "../edit-list-section/edit-list-section.component";
 import { MatDialog } from "@angular/material/dialog";
 import { DeleteAllComponent } from "../delete-all/delete-all.component";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: "app-expense-list",
@@ -23,7 +24,7 @@ export class ExpenseListComponent implements OnInit, AfterViewInit {
   showDeleteBtnNumber: boolean = false;
   allChecked: any;
   @Output() priceOfProduct = new EventEmitter<any>();
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private toastr: ToastrService) {}
   ngAfterViewInit() {
     console.log(this.expenseList);
   }
@@ -89,26 +90,29 @@ export class ExpenseListComponent implements OnInit, AfterViewInit {
       data: this.expenseList,
     });
     dialogRef.afterClosed().subscribe((res: any) => {
-      this.expenseList = res.updatedExpenseListAfterDeletion;
-      let checkAllTrue = this.expenseList.every((check: any) => {
-        return check.isSelected == true;
-      });
-      let checkAllFalse = this.expenseList.every((check: any) => {
-        return check.isSelected == false;
-      });
-      if (checkAllTrue || checkAllFalse) {
-        this.expenseList.splice(0, this.expenseList.length);
-      }else{
-        //    this.expenseList = this.expenseList.filter((val:any)=>{
-        // return val.isSelected == false;
-       const selectedDeletedItems = this.expenseList.filter((vrl:any)=> vrl.isSelected == true);
-       this.expenseList.splice(0,selectedDeletedItems.length)
-      }
-      console.log(res);
-
-      this.showDeleteBtnNumber = false;
-      if (!this.expenseList?.length) {
-        this.selectAll = false;
+      if(res?.updatedExpenseListAfterDeletion) {
+        this.expenseList = res.updatedExpenseListAfterDeletion;
+        let checkAllTrue = this.expenseList.every((check: any) => {
+          return check.isSelected == true;
+        });
+        let checkAllFalse = this.expenseList.every((check: any) => {
+          return check.isSelected == false;
+        });
+        if (checkAllTrue || checkAllFalse) {
+          this.expenseList.splice(0, this.expenseList.length);
+        }else{
+          //    this.expenseList = this.expenseList.filter((val:any)=>{
+          // return val.isSelected == false;
+         const selectedDeletedItems = this.expenseList.filter((vrl:any)=> vrl.isSelected == true);
+         this.expenseList.splice(0,selectedDeletedItems.length)
+        }
+        console.log(res);
+  
+        this.showDeleteBtnNumber = false;
+        if (!this.expenseList?.length) {
+          this.selectAll = false;
+        }
+        this.toastr.success('Selected Items Deleted Successfully');
       }
     });
   }
