@@ -13,6 +13,7 @@ import { EditListSectionComponent } from './edit-list-section/edit-list-section.
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import { DeleteAllComponent } from './delete-all/delete-all.component';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { DeleteAllComponent } from './delete-all/delete-all.component';
     BrowserAnimationsModule,
     MatDialogModule,
     MatButtonModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

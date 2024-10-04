@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { BudgetService } from './budget.service';
 import { Subscription } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-root',
@@ -17,14 +18,14 @@ export class AppComponent {
   totalBalance:any=0;
   deletedItemCost:any;
 
-  constructor(private _budgetService:BudgetService) {
+  constructor(private _budgetService:BudgetService, private toastr: ToastrService) {
     this.obs = this._budgetService.getAmount().subscribe((val:any)=>{
     this.totalBudget = val;
    })
   }
   addExpenses(val:any){    
     if(val.costOfProduct > this.totalBalance){
-      alert('You dont have enough budget');
+      this.toastr.error('You dont have enough budget');
     }
     else{
       this.expenseListVal.push({...val , isSelected:false});
@@ -34,11 +35,13 @@ export class AppComponent {
         return acc + val.costOfProduct
       },0)
       this.totalBalance = this.totalBudget - this.sum;
+      this.toastr.success('Item Added Successfully');
     }
   }
   deletedItem(event:any){
     this.sum = this.sum - event[0].costOfProduct;
     this.totalBalance = this.totalBudget - this.sum;
+    this.toastr.success('Item Deleted Successfully');
   }
   setBalanceValue(event:any){
     this.totalBalance = event;
